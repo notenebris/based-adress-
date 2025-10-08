@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleArrayStorage {
+
+    uint256[] public numbers;
+
+    // Fonction pour ajouter un nombre au tableau
+    function addNumber(uint256 _number) public {
+        numbers.push(_number);
+    }
+
+    // Fonction pour obtenir le nombre d'éléments dans le tableau
+    function getNumberCount() public view returns (uint256) {
+        return numbers.length;
+    }
+
+    // Fonction pour récupérer un nombre spécifique du tableau
+    function getNumberAt(uint256 index) public view returns (uint256) {
+        require(index < numbers.length, "Index out of bounds");
+        return numbers[index];
+    }
+}
